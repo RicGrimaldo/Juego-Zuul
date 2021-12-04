@@ -12,11 +12,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import rooms.*;
 
-public class Reader {
+public class ConfigFileReader {
     private RoomCreator roomCreator = new RoomCreator();
     List<Room> rooms = new ArrayList<>();
 
-    private  void readFile() {
+    private  void readConfigFile() {
         
         try {
             File archivoXml = new File("room.xml");
@@ -31,11 +31,7 @@ public class Reader {
                 room = setRoomExits(room, nodo);
                 rooms.add(room);
             }
-
-
             //checkAllRooms();
-
-
         } catch(Exception ex) {
 
         }
@@ -43,7 +39,7 @@ public class Reader {
 
 
     public Room getFirstRoom() {
-        readFile();
+        readConfigFile();
         return rooms.get(0);
     }
 
@@ -65,7 +61,7 @@ public class Reader {
         roomCreator.createExit(room, exit, content);
     }
 
-    private void checkAllRooms() {
+    /*private void checkAllRooms() {
         for (Room room : rooms) {
             System.out.println("Cuarto: " + room.getDescription());
             System.out.println("Salida al norte: " + room.northExit);
@@ -73,5 +69,5 @@ public class Reader {
             System.out.println("Salida al sur: " + room.southExit);
             System.out.println("Salida al oeste: " + room.westExit);
         }
-    }
+    }*/
 }
