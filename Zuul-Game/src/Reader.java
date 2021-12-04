@@ -14,10 +14,6 @@ import rooms.*;
 
 public class Reader {
     private RoomCreator roomCreator = new RoomCreator();
-    private Room north;
-    private Room east;
-    private Room south;
-    private Room west;
     List<Room> rooms = new ArrayList<>();
 
     private  void readFile() {
@@ -31,10 +27,7 @@ public class Reader {
             for (int i = 0; i < roomsX.getLength(); i++) {
                 Node nodo = roomsX.item(i);
                 Element element = (Element) nodo;
-                // Crea el cuarto principal
-                Room room = createRoom(element.getAttribute("id"));
-                
-                // Salidas de cada cuarto
+                Room room = createRoom(element.getAttribute("id"));// Crea el cuarto principal
                 room = setRoomExits(room, nodo);
                 rooms.add(room);
             }
@@ -81,42 +74,4 @@ public class Reader {
             System.out.println("Salida al oeste: " + room.westExit);
         }
     }
-    /*private Room createRoom(String room) {
-
-        switch(room) {
-            case "Outside":
-                return Outside.getInstance("outside the main entrance of the university");
-            case "Office":
-                return Office.getInstance("in the computing admin office");
-            case "Lab":
-                return Lab.getInstance("in a computing lab");
-            case "Pub":
-                return Pub.getInstance("in the campus pub");
-            case "Theatre":
-                return Theatre.getInstance("in a lecture theatre");
-            default:
-                break;
-            }
-
-            return null;
-    }*/
-
-    /*private void createExit(String exit, String content) {
-        switch (exit) {
-            case "northexit":
-                north = createRoom(content);
-                break;
-            case "eastexit":
-                east= createRoom(content);
-                break;
-            case "southexit":
-                south = createRoom(content);
-                break;
-            case "westexit":
-                west = createRoom(content);
-                break;  
-            default:
-                break;
-        }
-    }*/
 }

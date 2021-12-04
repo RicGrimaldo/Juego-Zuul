@@ -6,12 +6,6 @@ import rooms.Room;
 import rooms.Theatre;
 
 public class RoomCreator {
-
-    private Room north;
-    private Room east;
-    private Room south;
-    private Room west;
-
     public Room createRoom(String room) {
         switch(room) {
             case "Outside":
