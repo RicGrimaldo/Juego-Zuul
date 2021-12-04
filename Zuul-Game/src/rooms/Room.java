@@ -1,3 +1,4 @@
+package rooms;
 public class Room 
 {
     public String description;

@@ -1,3 +1,4 @@
+package rooms;
 public class Theatre extends Room {
     private static Theatre theatre;
 

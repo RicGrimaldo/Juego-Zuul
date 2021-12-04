@@ -1,3 +1,4 @@
+package rooms;
 public class Outside extends Room {
 
     private static Outside outside;

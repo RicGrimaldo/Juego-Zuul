@@ -1,3 +1,4 @@
+package rooms;
 public class Pub extends Room{
     private static Pub pub;
 

@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import rooms.*;
 
 public class Reader {
+    private RoomCreator roomCreator = new RoomCreator();
     private Room north;
     private Room east;
     private Room south;
