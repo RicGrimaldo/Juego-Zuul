@@ -35,14 +35,7 @@ public class Reader {
                 Room room = createRoom(element.getAttribute("id"));
                 
                 // Salidas de cada cuarto
-                NodeList salidas = nodo.getChildNodes();
-                for (int j = 0; j < salidas.getLength(); j++) {
-                    String exitName = salidas.item(j).getNodeName();
-                    String content = salidas.item(j).getTextContent();
-                    createExit(room, exitName, content);
-                }
-
-                //room.setExits(north, east, south, west);
+                room = setRoomExits(room, nodo);
                 rooms.add(room);
             }
 
@@ -61,6 +54,23 @@ public class Reader {
         return rooms.get(0);
     }
 
+    public Room setRoomExits(Room room, Node nodo){
+        NodeList salidas = nodo.getChildNodes();
+            for (int j = 0; j < salidas.getLength(); j++) {
+                String exitName = salidas.item(j).getNodeName();
+                String content = salidas.item(j).getTextContent();
+                createExit(room, exitName, content);
+            }
+        return room;
+    }
+
+    private Room createRoom(String room) {
+        return roomCreator.createRoom(room);
+    }
+
+    private void createExit(Room room, String exit, String content) {
+        roomCreator.createExit(room, exit, content);
+    }
 
     private void checkAllRooms() {
         for (Room room : rooms) {
@@ -70,14 +80,6 @@ public class Reader {
             System.out.println("Salida al sur: " + room.southExit);
             System.out.println("Salida al oeste: " + room.westExit);
         }
-    }
-
-    private Room createRoom(String room) {
-        return roomCreator.createRoom(room);
-    }
-
-    private void createExit(Room room, String exit, String content) {
-        roomCreator.createExit(room, exit, content);
     }
     /*private Room createRoom(String room) {
 
