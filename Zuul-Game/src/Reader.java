@@ -72,8 +72,10 @@ public class Reader {
         }
     }
 
-
     private Room createRoom(String room) {
+        return roomCreator.createRoom(room);
+    }
+    /*private Room createRoom(String room) {
 
         switch(room) {
             case "Outside":
@@ -91,7 +93,7 @@ public class Reader {
             }
 
             return null;
-    }
+    }*/
 
     private void createExit(String exit, String content) {
         switch (exit) {
