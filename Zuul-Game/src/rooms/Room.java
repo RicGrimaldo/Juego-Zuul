@@ -32,4 +32,46 @@ public class Room
         return description;
     }
 
+
+    public Room getNorthExit() {
+        return northExit;
+    }
+
+
+    public void setNorthExit(Room northExit) {
+        this.northExit = northExit;
+    }
+
+
+    public Room getSouthExit() {
+        return southExit;
+    }
+
+
+    public void setSouthExit(Room southExit) {
+        this.southExit = southExit;
+    }
+
+
+    public Room getEastExit() {
+        return eastExit;
+    }
+
+
+    public void setEastExit(Room eastExit) {
+        this.eastExit = eastExit;
+    }
+
+
+    public Room getWestExit() {
+        return westExit;
+    }
+
+
+    public void setWestExit(Room westExit) {
+        this.westExit = westExit;
+    }
+
+    
+
 }
