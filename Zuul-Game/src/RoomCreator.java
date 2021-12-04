@@ -7,6 +7,11 @@ import rooms.Theatre;
 
 public class RoomCreator {
 
+    private Room north;
+    private Room east;
+    private Room south;
+    private Room west;
+
     public Room createRoom(String room) {
         switch(room) {
             case "Outside":
@@ -24,5 +29,24 @@ public class RoomCreator {
             }
 
             return null;
+    }
+
+    public void createExit(String exit, String content) {
+        switch (exit) {
+            case "northexit":
+                north = createRoom(content);
+                break;
+            case "eastexit":
+                east= createRoom(content);
+                break;
+            case "southexit":
+                south = createRoom(content);
+                break;
+            case "westexit":
+                west = createRoom(content);
+                break;  
+            default:
+                break;
+        }
     }
 }

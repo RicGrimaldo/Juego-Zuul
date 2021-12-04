@@ -75,6 +75,10 @@ public class Reader {
     private Room createRoom(String room) {
         return roomCreator.createRoom(room);
     }
+
+    private void createExit(String exit, String content) {
+        roomCreator.createExit(exit, content);
+    }
     /*private Room createRoom(String room) {
 
         switch(room) {
@@ -95,7 +99,7 @@ public class Reader {
             return null;
     }*/
 
-    private void createExit(String exit, String content) {
+    /*private void createExit(String exit, String content) {
         switch (exit) {
             case "northexit":
                 north = createRoom(content);
@@ -112,5 +116,5 @@ public class Reader {
             default:
                 break;
         }
-    }
+    }*/
 }
