@@ -31,7 +31,7 @@ public class RoomCreator {
             return null;
     }
 
-    public void createExit(String exit, String content) {
+    public void createExit(Room room, String exit, String content) {
         switch (exit) {
             case "northexit":
                 north = createRoom(content);

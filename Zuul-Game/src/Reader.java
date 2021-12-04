@@ -39,7 +39,7 @@ public class Reader {
                 for (int j = 0; j < salidas.getLength(); j++) {
                     String exitName = salidas.item(j).getNodeName();
                     String content = salidas.item(j).getTextContent();
-                    createExit(exitName, content);
+                    createExit(room, exitName, content);
                 }
 
                 room.setExits(north, east, south, west);
@@ -76,8 +76,8 @@ public class Reader {
         return roomCreator.createRoom(room);
     }
 
-    private void createExit(String exit, String content) {
-        roomCreator.createExit(exit, content);
+    private void createExit(Room room, String exit, String content) {
+        roomCreator.createExit(room, exit, content);
     }
     /*private Room createRoom(String room) {
 
