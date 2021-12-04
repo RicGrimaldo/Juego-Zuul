@@ -1,3 +1,4 @@
+package rooms;
 public class Lab extends Room {
     private static Lab lab;
 

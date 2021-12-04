@@ -1,3 +1,4 @@
+package rooms;
 public class Office extends Room {
     private static Office office;
 

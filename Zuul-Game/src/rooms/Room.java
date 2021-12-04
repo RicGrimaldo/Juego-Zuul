@@ -1,3 +1,4 @@
+package rooms;
 public class Room 
 {
     public String description;
@@ -30,5 +31,23 @@ public class Room
     {
         return description;
     }
+
+    public void setNorthExit(Room northExit) {
+        this.northExit = northExit;
+    }
+
+    public void setSouthExit(Room southExit) {
+        this.southExit = southExit;
+    }
+
+    public void setEastExit(Room eastExit) {
+        this.eastExit = eastExit;
+    }
+
+    public void setWestExit(Room westExit) {
+        this.westExit = westExit;
+    }
+
+    
 
 }
