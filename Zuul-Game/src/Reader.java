@@ -42,7 +42,7 @@ public class Reader {
                     createExit(room, exitName, content);
                 }
 
-                room.setExits(north, east, south, west);
+                //room.setExits(north, east, south, west);
                 rooms.add(room);
             }
 

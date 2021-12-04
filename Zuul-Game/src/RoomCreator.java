@@ -34,16 +34,20 @@ public class RoomCreator {
     public void createExit(Room room, String exit, String content) {
         switch (exit) {
             case "northexit":
-                north = createRoom(content);
+                room.setNorthExit(createRoom(content));
+                //north = createRoom(content);
                 break;
             case "eastexit":
-                east= createRoom(content);
+                room.setEastExit(createRoom(content));
+                //east= createRoom(content);
                 break;
             case "southexit":
-                south = createRoom(content);
+                room.setSouthExit(createRoom(content));
+                //south = createRoom(content);
                 break;
             case "westexit":
-                west = createRoom(content);
+                room.setWestExit(createRoom(content));
+                //west = createRoom(content);
                 break;  
             default:
                 break;
