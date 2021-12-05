@@ -1,5 +1,7 @@
 import rooms.Room;
 public class UI {
+    //  Clase donde hace todas las impresiones necesarias
+    
     public void printWelcome()
     {
         System.out.println();

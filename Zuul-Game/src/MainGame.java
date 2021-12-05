@@ -23,16 +23,8 @@ public class MainGame {
 
         while (! finished) {
             console.printLocation(currentRoom);
-            System.out.print("> ");     // print prompt
-            // inputLine = reader.nextLine();
-            // Scanner tokenizer = new Scanner(inputLine);
-            // if(tokenizer.hasNext()) {
-            //     word1 = tokenizer.next();      // get first word
-            //     if(tokenizer.hasNext()) {
-            //         word2 = tokenizer.next();      // get second word
-            //         // note: we just ignore the rest of the input line.
-            //     } else word2 = null;
-            // }
+            System.out.print("> ");
+            // Implementación del parser
             finished = checker.proccessComand(word1, word2);
         }
         System.out.println("¡Hasta pronto!");

@@ -24,7 +24,6 @@ public class CommandsReader {
                 System.out.println("\nIngresaste un comando inválido. ¡Intenta de nuevo!\n");
                 return false;
         }
-
         return wantToQuit;
     }
 }
