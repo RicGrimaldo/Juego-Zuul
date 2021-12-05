@@ -5,15 +5,15 @@ public class CommandsReader {
         this.console = console;
     }
 
-    public boolean proccessComand(String word1, String word2){
+    public boolean proccessComand(Command command){
         boolean wantToQuit = false;
 
-        switch(word1){
+        switch(command.getCommandWord()){
             case "ir":
                 //  Código que dirije hacia dónde ir
                 break;
             case "salir":
-                wantToQuit = console.quit(word1, word2);
+                wantToQuit = console.quit(command);
                 break;
 
             case "ayuda":
