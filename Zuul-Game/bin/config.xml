@@ -5,25 +5,25 @@
         <southexit>Lab</southexit>
         <westexit>Pub</westexit>
     </room>
-     <room id = "Theatre">
+    <room id = "Theatre">
         <northexit></northexit>
         <eastexit></eastexit>
         <southexit></southexit>
         <westexit>Outside</westexit>
     </room>
-     <room id = "Pub">
+    <room id = "Pub">
         <northexit></northexit>
         <eastexit>Outside</eastexit>
         <southexit></southexit>
         <westexit></westexit>
     </room>
-     <room id = "Lab">
+    <room id = "Lab">
         <northexit>Outside</northexit>
         <eastexit>Office</eastexit>
         <southexit></southexit>
         <westexit></westexit>
     </room>
-     <room id = "Office">
+    <room id = "Office">
         <northexit></northexit>
         <eastexit></eastexit>
         <southexit></southexit>
