@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class CommandCreator {
     private Scanner scCommandWords;
     private static final String[] validCommands = {"go", "quit", "help"};
-    
+
     public Command createCommand(String input){
         String commandWord = null;
         String secondWord = null;
@@ -15,7 +15,13 @@ public class CommandCreator {
                 secondWord = scCommandWords.next();
             }
         }
-        return new Command(commandWord, secondWord);
+        
+        if(isValidCommand(commandWord)) {
+            return new Command(commandWord, secondWord);
+        }
+        else {
+            return new Command(null, secondWord); 
+        }
     }
 
     public boolean isValidCommand(String commandWord){
