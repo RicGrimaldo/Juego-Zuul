@@ -8,6 +8,11 @@ public class RoomDirectioner {
 
     public void goRoom(Command command){
         Room nextRoom = null;
+
+        if (!command.hasSecondWord()){
+            System.out.println("¿Ir a donde?");
+            return;
+        }
         switch(command.getSecondWord()){
             case "norte":
                 nextRoom = main.getCurrentRoom().getNorthExit();
@@ -22,10 +27,6 @@ public class RoomDirectioner {
 
             case "oeste":
                 nextRoom = main.getCurrentRoom().getWestExit();
-                break;
-
-            default: 
-                System.out.println("¿Ir a donde?");
                 break;
         }
         if (nextRoom != null) {
