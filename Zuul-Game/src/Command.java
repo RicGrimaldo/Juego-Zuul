@@ -6,7 +6,7 @@ public class Command {
         commandWord = firstWord;
         this.secondWord = secondWord;
     }
-
+    
     public String getCommandWord(){
         return commandWord;
     }
