@@ -4,7 +4,6 @@ public class Lab extends Room {
 
     private Lab(String description) {
         super(description);
-        //TODO Auto-generated constructor stub
     }
 
     public static Lab getInstance(String description) {

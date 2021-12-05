@@ -1,32 +1,18 @@
 package rooms;
 public class Room 
 {
-    public String description;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+    private String description;
+    private Room northExit;
+    private Room southExit;
+    private Room eastExit;
+    private Room westExit;
 
 
     public Room(String description) 
     {
         this.description = description;
     }
-
-
-    public void setExits(Room north, Room east, Room south, Room west) 
-    {
-        if(north != null)
-            northExit = north;
-        if(east != null)
-            eastExit = east;
-        if(south != null)
-            southExit = south;
-        if(west != null)
-            westExit = west;
-    }
-
-    
+     
     public String getDescription()
     {
         return description;
@@ -46,6 +32,22 @@ public class Room
 
     public void setWestExit(Room westExit) {
         this.westExit = westExit;
+    }
+
+    public Room getNorthExit() {
+        return northExit;
+    }
+
+    public Room getSouthExit() {
+        return southExit;
+    }
+
+    public Room getEastExit() {
+        return eastExit;
+    }
+
+    public Room getWestExit() {
+        return westExit;
     }
 
     

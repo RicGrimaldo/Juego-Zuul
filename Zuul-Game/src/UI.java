@@ -14,24 +14,24 @@ public class UI {
     public void printLocation(Room currentRoom){
         System.out.println("\nTu ubicación actual es: " + currentRoom.getDescription());
         System.out.print("Salidas: ");
-        if(currentRoom.northExit != null) {
-            System.out.print("Norte ");
+        if(currentRoom.getNorthExit() != null) {
+            System.out.print("norte ");
         }
-        if(currentRoom.eastExit != null) {
-            System.out.print("Este ");
+        if(currentRoom.getEastExit() != null) {
+            System.out.print("este ");
         }
-        if(currentRoom.southExit != null) {
-            System.out.print("Sur ");
+        if(currentRoom.getSouthExit() != null) {
+            System.out.print("sur ");
         }
-        if(currentRoom.westExit != null) {
-            System.out.print("Oeste ");
+        if(currentRoom.getWestExit() != null) {
+            System.out.print("oeste ");
         }
         System.out.println("¿Hacia dónde quieres ir?");
     }
 
-    public boolean quit(String word1, String word2) 
+    public boolean quit(Command command) 
     {
-        if(word2 != null) {
+        if(command.hasSecondWord()) {
             System.out.println("Quizás quisiste decir: 'salir'\n");
             return false;
         }

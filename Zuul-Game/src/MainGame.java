@@ -1,32 +1,50 @@
+import java.util.Scanner;
+
 import rooms.Room;
 public class MainGame {
     private Room currentRoom;
-    private CommandsReader checker;
     private UI console;
-
+    String commandInput;
+    Scanner scannerInput;
+    private CommandCreator commandCreator;
+    private CommandsReader checker;
+    private RoomDirectioner roomDirectioner;
+    
     public MainGame(){
         createRooms();
+        commandCreator = new CommandCreator();
+        scannerInput = new Scanner(System.in);
+        console = new UI();
+        roomDirectioner = new RoomDirectioner(this);
+        checker = new CommandsReader(console, roomDirectioner);
     }
 
-    private void createRooms()
-    {   
-        console = new UI();
+    private void createRooms(){   
         currentRoom = new ConfigFileReader().getFirstRoom();
-        checker = new CommandsReader(console);
     }
 
     public void play(){
-        String word1 = null;
-        String word2 = null;
         console.printWelcome();
         boolean finished = false;
-
         while (! finished) {
-            console.printLocation(currentRoom);
-            System.out.print("> ");
-            // Implementación del parser
-            finished = checker.proccessComand(word1, word2);
+            finished = getCommand();
         }
         System.out.println("¡Hasta pronto!");
+    }
+
+    private boolean getCommand(){
+        console.printLocation(currentRoom);
+        System.out.print("> ");
+        commandInput = scannerInput.nextLine();
+        Command command = commandCreator.createCommand(commandInput);
+        return checker.proccessComand(command);
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
     }
 }
