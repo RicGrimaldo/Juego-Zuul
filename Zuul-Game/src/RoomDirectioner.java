@@ -10,7 +10,7 @@ public class RoomDirectioner {
         Room nextRoom = null;
 
         if (!command.hasSecondWord()){
-            System.out.println("¿Ir a donde?");
+            System.out.println("¿Ir a d\u00f3nde?");
             return;
         }
         switch(command.getSecondWord()){
@@ -32,7 +32,7 @@ public class RoomDirectioner {
         if (nextRoom != null) {
             main.setCurrentRoom(nextRoom);
         }else{
-            System.out.println("¡No hay salida por ahí!");
+            System.out.println("¡No hay salida por ah\u00ed!");
         }
     }
 }
