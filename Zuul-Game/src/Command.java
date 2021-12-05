@@ -10,7 +10,11 @@ public class Command {
     public String getCommandWord(){
         return commandWord;
     }
-    
+        
+    public String getSecondWord() {
+        return secondWord;
+    }
+
     public boolean isUnknown(){
         return commandWord == null;
     }

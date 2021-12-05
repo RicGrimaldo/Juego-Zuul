@@ -1,8 +1,10 @@
 public class CommandsReader {
     private UI console;
+    private RoomDirectioner roomDirectioner;
 
-    public CommandsReader(UI console){
+    public CommandsReader(UI console, RoomDirectioner roomDirectioner){
         this.console = console;
+        this.roomDirectioner = roomDirectioner;
     }
 
     public boolean proccessComand(Command command){
@@ -10,7 +12,7 @@ public class CommandsReader {
 
         switch(command.getCommandWord()){
             case "ir":
-                
+                roomDirectioner.goRoom(command);
                 break;
             case "salir":
                 wantToQuit = console.quit(command);

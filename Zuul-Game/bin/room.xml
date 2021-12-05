@@ -1,8 +1,8 @@
 <root>
     <room id = "Outside">
         <northexit></northexit>
-        <eastexit>Lab</eastexit>
-        <southexit>Theatre</southexit>
+        <eastexit>Theatre</eastexit>
+        <southexit>Lab</southexit>
         <westexit>Pub</westexit>
     </room>
      <room id = "Theatre">

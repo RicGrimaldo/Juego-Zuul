@@ -40,6 +40,7 @@ public class ConfigFileReader {
 
     public Room getFirstRoom() {
         readConfigFile();
+        System.out.println(rooms);
         return rooms.get(0);
     }
 

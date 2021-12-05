@@ -8,17 +8,19 @@ public class MainGame {
     Scanner scannerInput;
     private CommandCreator commandCreator;
     private CommandsReader checker;
+    private RoomDirectioner roomDirectioner;
     
     public MainGame(){
         createRooms();
         commandCreator = new CommandCreator();
         scannerInput = new Scanner(System.in);
+        roomDirectioner = new RoomDirectioner(console,this);
+        checker = new CommandsReader(console, roomDirectioner);
     }
 
     private void createRooms(){   
         console = new UI();
         currentRoom = new ConfigFileReader().getFirstRoom();
-        checker = new CommandsReader(console);
     }
 
     public void play(){
@@ -36,5 +38,13 @@ public class MainGame {
         commandInput = scannerInput.nextLine();
         Command command = commandCreator.createCommand(commandInput);
         return checker.proccessComand(command);
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
     }
 }
