@@ -14,12 +14,12 @@ public class MainGame {
         createRooms();
         commandCreator = new CommandCreator();
         scannerInput = new Scanner(System.in);
+        console = new UI();
         roomDirectioner = new RoomDirectioner(console,this);
         checker = new CommandsReader(console, roomDirectioner);
     }
 
     private void createRooms(){   
-        console = new UI();
         currentRoom = new ConfigFileReader().getFirstRoom();
     }
 

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class CommandCreator {
     private Scanner scCommandWords;
-    private static final String[] validCommands = {"go", "quit", "help"};
+    private static final String[] validCommands = {"ir", "salir", "ayuda"};
 
     public Command createCommand(String input){
         String commandWord = null;
@@ -25,6 +25,7 @@ public class CommandCreator {
     }
 
     public boolean isValidCommand(String commandWord){
+        
         for(int i = 0; i < validCommands.length; i++) {
             if(validCommands[i].equals(commandWord))
                 return true;

@@ -32,9 +32,8 @@ public class RoomDirectioner {
         }
         if (nextRoom != null) {
             main.setCurrentRoom(nextRoom);
-            console.printLocation(main.getCurrentRoom());
         }else{
-            System.out.println("There is no door!");
+            System.out.println("¡No hay salida por ahí!");
         }
     }
 }

@@ -27,14 +27,13 @@ public class ConfigFileReader {
             Document documentoXml = builder.parse(archivoXml);
             NodeList roomsX = documentoXml.getElementsByTagName("room");
             for(int i = 0; i < roomsX.getLength(); i++) {
-                System.out.println("entra");
                 Node nodo = roomsX.item(i);
                 Element element = (Element) nodo;
                 Room room = createRoom(element.getAttribute("id"));// Crea el cuarto principal
                 room = setRoomExits(room, nodo);
                 rooms.add(room);
             }
-            checkAllRooms();
+            //checkAllRooms();
         }catch(ParserConfigurationException e1){
             e1.printStackTrace();
         }catch(SAXException e2){

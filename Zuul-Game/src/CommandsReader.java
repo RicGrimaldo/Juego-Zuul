@@ -9,7 +9,11 @@ public class CommandsReader {
 
     public boolean proccessComand(Command command){
         boolean wantToQuit = false;
-
+        if(command.isUnknown()){
+            System.out.println("\nIngresaste un comando inválido. ¡Intenta de nuevo!\n");
+            return false;
+        }
+        
         switch(command.getCommandWord()){
             case "ir":
                 roomDirectioner.goRoom(command);
@@ -20,10 +24,6 @@ public class CommandsReader {
 
             case "ayuda":
                 console.printHelp();
-                break;
-
-            default: 
-                System.out.println("\nIngresaste un comando inválido. ¡Intenta de nuevo!\n");
                 break;
         }
         return wantToQuit;

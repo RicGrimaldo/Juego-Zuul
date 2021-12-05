@@ -15,16 +15,16 @@ public class UI {
         System.out.println("\nTu ubicación actual es: " + currentRoom.getDescription());
         System.out.print("Salidas: ");
         if(currentRoom.northExit != null) {
-            System.out.print("Norte ");
+            System.out.print("norte ");
         }
         if(currentRoom.eastExit != null) {
-            System.out.print("Este ");
+            System.out.print("este ");
         }
         if(currentRoom.southExit != null) {
-            System.out.print("Sur ");
+            System.out.print("sur ");
         }
         if(currentRoom.westExit != null) {
-            System.out.print("Oeste ");
+            System.out.print("oeste ");
         }
         System.out.println("¿Hacia dónde quieres ir?");
     }
