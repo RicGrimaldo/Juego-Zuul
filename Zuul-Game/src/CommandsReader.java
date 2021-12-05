@@ -10,7 +10,7 @@ public class CommandsReader {
 
         switch(command.getCommandWord()){
             case "ir":
-                //  Código que dirije hacia dónde ir
+                
                 break;
             case "salir":
                 wantToQuit = console.quit(command);
@@ -22,7 +22,7 @@ public class CommandsReader {
 
             default: 
                 System.out.println("\nIngresaste un comando inválido. ¡Intenta de nuevo!\n");
-                return false;
+                break;
         }
         return wantToQuit;
     }

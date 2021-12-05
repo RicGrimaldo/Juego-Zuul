@@ -11,26 +11,30 @@ public class MainGame {
     
     public MainGame(){
         createRooms();
-        console = new UI();
         commandCreator = new CommandCreator();
-        checker = new CommandsReader(console);
         scannerInput = new Scanner(System.in);
     }
 
     private void createRooms(){   
+        console = new UI();
         currentRoom = new ConfigFileReader().getFirstRoom();
+        checker = new CommandsReader(console);
     }
 
     public void play(){
         console.printWelcome();
         boolean finished = false;
         while (! finished) {
-            console.printLocation(currentRoom);
-            System.out.print("> ");
-            commandInput = scannerInput.nextLine();
-            Command command = commandCreator.createCommand(commandInput);
-            finished = checker.proccessComand(command);
+            finished = getCommand();
         }
         System.out.println("¡Hasta pronto!");
+    }
+
+    private boolean getCommand(){
+        console.printLocation(currentRoom);
+        System.out.print("> ");
+        commandInput = scannerInput.nextLine();
+        Command command = commandCreator.createCommand(commandInput);
+        return checker.proccessComand(command);
     }
 }
