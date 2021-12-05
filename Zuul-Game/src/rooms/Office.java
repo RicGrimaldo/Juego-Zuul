@@ -4,7 +4,6 @@ public class Office extends Room {
 
     private Office(String description) {
         super(description);
-        //TODO Auto-generated constructor stub
     }
 
     public static Office getInstance(String description) {

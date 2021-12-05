@@ -4,7 +4,6 @@ public class Pub extends Room{
 
     private Pub(String description) {
         super(description);
-        //TODO Auto-generated constructor stub
     }
 
     public static Pub getInstance(String description) {

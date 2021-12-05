@@ -4,7 +4,6 @@ public class Theatre extends Room {
 
     private Theatre(String description) {
         super(description);
-        //TODO Auto-generated constructor stub
     }
 
     public static Theatre getInstance(String description) {
