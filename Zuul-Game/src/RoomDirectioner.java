@@ -2,28 +2,26 @@ import rooms.Room;
 
 public class RoomDirectioner {
     private MainGame main;
-    private UI console;
-    public RoomDirectioner(UI console, MainGame main) {
+    public RoomDirectioner(MainGame main) {
         this.main = main;
-        this.console = console;
     }
 
     public void goRoom(Command command){
         Room nextRoom = null;
         switch(command.getSecondWord()){
             case "norte":
-                nextRoom = main.getCurrentRoom().northExit;
+                nextRoom = main.getCurrentRoom().getNorthExit();
                 break;
             case "sur":
-                nextRoom = main.getCurrentRoom().southExit;
+                nextRoom = main.getCurrentRoom().getSouthExit();
                 break;
 
             case "este":
-                nextRoom = main.getCurrentRoom().eastExit;
+                nextRoom = main.getCurrentRoom().getEastExit();
                 break;
 
             case "oeste":
-                nextRoom = main.getCurrentRoom().westExit;
+                nextRoom = main.getCurrentRoom().getWestExit();
                 break;
 
             default: 

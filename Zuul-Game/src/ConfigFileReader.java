@@ -33,7 +33,6 @@ public class ConfigFileReader {
                 room = setRoomExits(room, nodo);
                 rooms.add(room);
             }
-            //checkAllRooms();
         }catch(ParserConfigurationException e1){
             e1.printStackTrace();
         }catch(SAXException e2){
@@ -65,15 +64,5 @@ public class ConfigFileReader {
 
     private void createExit(Room room, String exit, String content) {
         roomCreator.createExit(room, exit, content);
-    }
-
-    private void checkAllRooms() {
-        for (Room room : rooms) {
-            System.out.println("Cuarto: " + room.getDescription());
-            System.out.println("Salida al norte: " + room.northExit);
-            System.out.println("Salida al este: " + room.eastExit);
-            System.out.println("Salida al sur: " + room.southExit);
-            System.out.println("Salida al oeste: " + room.westExit);
-        }
     }
 }

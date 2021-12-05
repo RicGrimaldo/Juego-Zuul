@@ -15,7 +15,7 @@ public class MainGame {
         commandCreator = new CommandCreator();
         scannerInput = new Scanner(System.in);
         console = new UI();
-        roomDirectioner = new RoomDirectioner(console,this);
+        roomDirectioner = new RoomDirectioner(this);
         checker = new CommandsReader(console, roomDirectioner);
     }
 
