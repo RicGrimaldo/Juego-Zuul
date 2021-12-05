@@ -1,3 +1,4 @@
+import rooms.Room;
 public class UI {
     public void printWelcome()
     {
