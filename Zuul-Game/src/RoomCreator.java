@@ -9,15 +9,15 @@ public class RoomCreator {
     public Room createRoom(String room) {
         switch(room) {
             case "Outside":
-                return Outside.getInstance("outside the main entrance of the university");
+                return Outside.getInstance("fuera de la entrada principal de la universidad");
             case "Office":
-                return Office.getInstance("in the computing admin office");
+                return Office.getInstance("en la oficina del administrador de computaci\u00f3n");
             case "Lab":
-                return Lab.getInstance("in a computing lab");
+                return Lab.getInstance("en el laboratorio de computaci\u00f3n");
             case "Pub":
-                return Pub.getInstance("in the campus pub");
+                return Pub.getInstance("en el pub del campus");
             case "Theatre":
-                return Theatre.getInstance("in a lecture theatre");
+                return Theatre.getInstance("en una sala de conferencias");
             default:
                 break;
             }
