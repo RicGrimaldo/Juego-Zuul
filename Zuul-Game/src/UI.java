@@ -29,9 +29,9 @@ public class UI {
         System.out.println("¿Hacia dónde quieres ir?");
     }
 
-    public boolean quit(String word1, String word2) 
+    public boolean quit(Command command) 
     {
-        if(word2 != null) {
+        if(command.hasSecondWord()) {
             System.out.println("Quizás quisiste decir: 'salir'\n");
             return false;
         }
