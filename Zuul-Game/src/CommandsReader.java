@@ -10,7 +10,7 @@ public class CommandsReader {
     public boolean proccessComand(Command command){
         boolean wantToQuit = false;
         if(command.isUnknown()){
-            System.out.println("\nIngresaste un comando inválido. ¡Intenta de nuevo!\n");
+            System.out.println("\nIngresaste un comando inv\u00e1lido. ¡Intenta de nuevo!\n");
             return false;
         }
         
