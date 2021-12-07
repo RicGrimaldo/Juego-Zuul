@@ -1,8 +1,12 @@
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,20 +22,25 @@ import rooms.*;
 public class ConfigFileReader {
     private RoomCreator roomCreator = new RoomCreator();
     List<Room> rooms = new ArrayList<>();
-
-    private void readConfigFile() {
+    
+    
+    private void readConfigFile() throws Exception {
         try {
             File archivoXml = new File("src/config.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbFactory.newDocumentBuilder();
             Document documentoXml = builder.parse(archivoXml);
-            NodeList roomsX = documentoXml.getElementsByTagName("room");
-            for(int i = 0; i < roomsX.getLength(); i++) {
-                Node nodo = roomsX.item(i);
-                Element element = (Element) nodo;
-                Room room = createRoom(element.getAttribute("id"));// Crea el cuarto principal
-                room = setRoomExits(room, nodo);
-                rooms.add(room);
+            if (verifyTags(documentoXml)) {
+                NodeList roomsX = documentoXml.getElementsByTagName("room");
+                for(int i = 0; i < roomsX.getLength(); i++) {
+                    Node nodo = roomsX.item(i);
+                    Element element = (Element) nodo;
+                    Room room = createRoom(element.getAttribute("id"));// Crea el cuarto principal
+                    room = setRoomExits(room, nodo);
+                    rooms.add(room);
+                } 
+            } else {
+                throw new Exception("Hay alguna etiqueta incorrecta");
             }
         }catch(ParserConfigurationException e1){
             e1.printStackTrace();
@@ -43,7 +52,27 @@ public class ConfigFileReader {
     }
 
 
-    public Room getFirstRoom() {
+    private boolean verifyTags(Document document) {
+        NodeList tags = document.getElementsByTagName("*");
+        for(int i=0;i<tags.getLength();i++){
+            if (!isTagCorrect(tags.item(i).getNodeName())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    private boolean isTagCorrect(String tag) {
+        if (tag.equals("root") || tag.equals("room") || tag.equals("northexit") || tag.equals("eastexit") || tag.equals("southexit") || tag.equals("westexit")) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public Room getFirstRoom() throws Exception {
         readConfigFile();
         return rooms.get(0);
     }
@@ -65,4 +94,23 @@ public class ConfigFileReader {
     private void createExit(Room room, String exit, String content) {
         roomCreator.createExit(room, exit, content);
     }
+
+    @Test
+    /**
+     * Método para verificar si la función que verifica las etiquetas funciona correctamente cuando estas son incorrectas
+     */
+    public void TestTagsAreIncorrect() {
+        assertTrue("La etiqueta es incorrecta", isTagCorrect("roots"));
+    }
+
+    @Test
+    /**
+     * Método para verificar si la función que verifica las etiquetas funciona correctamente cuando estas son correctas
+     */
+    public void TestTagsAreCorrect() {
+        assertTrue("La etiqueta es correcta", isTagCorrect("root"));
+    }
+
+
+ 
 }
