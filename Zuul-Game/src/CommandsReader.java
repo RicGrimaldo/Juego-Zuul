@@ -7,7 +7,7 @@ public class CommandsReader {
         this.roomDirectioner = roomDirectioner;
     }
 
-    public boolean proccessComand(Command command){
+    public boolean proccessComand(Command command) {
         boolean wantToQuit = false;
         if(command.isUnknown()){
             System.out.println("\nIngresaste un comando inv\u00e1lido. ¡Intenta de nuevo!\n");
