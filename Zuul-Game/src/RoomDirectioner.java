@@ -1,22 +1,42 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+import rooms.Outside;
 import rooms.Room;
 
 public class RoomDirectioner {
     private MainGame main;
-    public RoomDirectioner(MainGame main) {
+
+    public void setMainGame(MainGame main) {
         this.main = main;
     }
 
-    public void goRoom(Command command){
+    public void goRoom(Command command) {
         Room nextRoom = null;
 
         if (!command.hasSecondWord()){
             System.out.println("¿Ir a d\u00f3nde?");
             return;
         }
-        switch(command.getSecondWord()){
+        
+        nextRoom = setNextRoom(command.getSecondWord());
+
+        if (nextRoom != null) {
+            main.setCurrentRoom(nextRoom);
+        }else{
+            System.out.println("¡No hay salida por ah\u00ed!");
+        }
+    }
+
+    private Room setNextRoom(String secondWord) {
+        Room nextRoom = null;
+        switch(secondWord){
             case "norte":
                 nextRoom = main.getCurrentRoom().getNorthExit();
                 break;
+
             case "sur":
                 nextRoom = main.getCurrentRoom().getSouthExit();
                 break;
@@ -29,10 +49,43 @@ public class RoomDirectioner {
                 nextRoom = main.getCurrentRoom().getWestExit();
                 break;
         }
-        if (nextRoom != null) {
-            main.setCurrentRoom(nextRoom);
-        }else{
-            System.out.println("¡No hay salida por ah\u00ed!");
-        }
+
+        return nextRoom;
+    }
+
+    @Test
+    public void TestSetNextRoom_North() throws Exception {
+        MainGame main = new MainGame();
+        main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
+        this.setMainGame(main);
+        Room nextRoom = main.getCurrentRoom().getNorthExit();
+        assertEquals(nextRoom, setNextRoom("norte"));
+    }
+
+    @Test
+    public void TestSetNextRoom_East() throws Exception {
+        MainGame main = new MainGame();
+        main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
+        this.setMainGame(main);
+        Room nextRoom = main.getCurrentRoom().getEastExit();
+        assertEquals(nextRoom, setNextRoom("este"));
+    }
+
+    @Test
+    public void TestSetNextRoom_South() throws Exception {
+        MainGame main = new MainGame();
+        main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
+        this.setMainGame(main);
+        Room nextRoom = main.getCurrentRoom().getSouthExit();
+        assertEquals(nextRoom, setNextRoom("sur"));
+    }
+
+    @Test
+    public void TestSetNextRoom_West() throws Exception {
+        MainGame main = new MainGame();
+        main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
+        this.setMainGame(main);
+        Room nextRoom = main.getCurrentRoom().getWestExit();
+        assertEquals(nextRoom, setNextRoom("oeste"));
     }
 }
