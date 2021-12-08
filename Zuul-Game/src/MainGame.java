@@ -10,7 +10,7 @@ public class MainGame {
     private CommandsReader checker;
     private RoomDirectioner roomDirectioner;
     
-    public MainGame(){
+    public MainGame() throws Exception{
         createRooms();
         commandCreator = new CommandCreator();
         scannerInput = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class MainGame {
         checker = new CommandsReader(console, roomDirectioner);
     }
 
-    private void createRooms(){   
+    private void createRooms() throws Exception{   
         currentRoom = new ConfigFileReader().getFirstRoom();
     }
 
