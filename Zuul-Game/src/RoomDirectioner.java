@@ -54,6 +54,10 @@ public class RoomDirectioner {
     }
 
     @Test
+    /**
+     * Test para verificar que el cambio de cuarto al norte es correcto
+     * @throws Exception
+     */
     public void TestSetNextRoom_North() throws Exception {
         MainGame main = new MainGame();
         main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
@@ -63,6 +67,10 @@ public class RoomDirectioner {
     }
 
     @Test
+    /**
+     * Test para verificar que el cambio de cuarto al este es correcto
+     * @throws Exception
+     */
     public void TestSetNextRoom_East() throws Exception {
         MainGame main = new MainGame();
         main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
@@ -72,6 +80,10 @@ public class RoomDirectioner {
     }
 
     @Test
+    /**
+     * Test para verificar que el cambio de cuarto al sur es correcto
+     * @throws Exception
+     */
     public void TestSetNextRoom_South() throws Exception {
         MainGame main = new MainGame();
         main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
@@ -81,6 +93,10 @@ public class RoomDirectioner {
     }
 
     @Test
+    /**
+     * Test para verificar que el cambio de cuarto al oeste es correcto
+     * @throws Exception
+     */
     public void TestSetNextRoom_West() throws Exception {
         MainGame main = new MainGame();
         main.setCurrentRoom(Outside.getInstance("fuera de la entrada principal de la universidad"));
