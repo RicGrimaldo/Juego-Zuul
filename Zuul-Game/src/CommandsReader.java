@@ -1,13 +1,13 @@
 public class CommandsReader {
-    private UI console;
+    private UI consolePrints;
     private RoomDirectioner roomDirectioner;
 
     public CommandsReader(UI console, RoomDirectioner roomDirectioner){
-        this.console = console;
+        this.consolePrints = console;
         this.roomDirectioner = roomDirectioner;
     }
 
-    public boolean proccessComand(Command command) {
+    public boolean proccessCommandWord(Command command) {
         boolean wantToQuit = false;
         if(command.isUnknown()){
             System.out.println("\nIngresaste un comando inv\u00e1lido. ¡Intenta de nuevo!\n");
@@ -19,11 +19,11 @@ public class CommandsReader {
                 roomDirectioner.goRoom(command);
                 break;
             case "salir":
-                wantToQuit = console.quit(command);
+                wantToQuit = consolePrints.quit(command);
                 break;
 
             case "ayuda":
-                console.printHelp();
+                consolePrints.printHelp();
                 break;
         }
         return wantToQuit;
