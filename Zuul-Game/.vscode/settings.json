@@ -3,8 +3,6 @@
     "java.project.outputPath": "bin",
     "git.ignoreLimitWarning": true,
     "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "c:\\Users\\Jesus Torres\\Downloads\\junit-4.13.2.jar",
-        "c:\\Users\\Jesus Torres\\Downloads\\hamcrest-core-1.3.jar"
+        "lib/**/*.jar"
     ]
 }
